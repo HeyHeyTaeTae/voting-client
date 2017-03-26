@@ -10,19 +10,19 @@ module.exports = {
 		loaders: [{
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
-			loader: 'react-hot!babel'
+			loader: 'react-hot-loader!babel-loader'
 		}]
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
-	}
+		extensions: ['.js', '.jsx']
+	},
 	output: {
 		path: __dirname + '/dist',
 		publicPath: '/',
 		filename: 'bundle.js'
 	},
 	devServer: {
-		contentBase: './dist'
+		contentBase: './dist',
 		hot: true
 	},
 	plugins: [
