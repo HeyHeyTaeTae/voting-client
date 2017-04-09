@@ -14,5 +14,5 @@ const routes = <Route component={App}>
 
 ReactDOM.render(
 	<Router hashHistory={hashHistory}>{routes}</Router>,
-	document.getElementById('app');
+	document.getElementById('app')
 );
