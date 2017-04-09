@@ -7,3 +7,23 @@ import {List, Map} from 'immutable';
 import Results from '../../src/components/Results';
 import {expect} from 'chai';
 
+describe('Results', () => {
+
+	it('should render results with vote count or zero', () => {
+		const pair = List.of('Trainspotting', '28 Days Later');
+		const tally = Map({'Trainspotting': 5});
+		const component = renderIntoDocument(
+			<Render pair={pair} tally={tally} />
+		);
+		const entries = scryRenderedDOMComponentsWithClass(component, 'entry');
+    	const [train, days] = entries.map(e => e.textContent);
+
+	    expect(entries.length).to.equal(2);
+	    expect(train).to.contain('Trainspotting');
+	    expect(train).to.contain('5');
+	    expect(days).to.contain('28 Days Later');
+	    expect(days).to.contain('0');
+	});
+	
+});
+
